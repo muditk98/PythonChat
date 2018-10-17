@@ -1,18 +1,23 @@
 message {
 	id,
 	type,
+	author,
 	data
 }
 
 users {
-	user_id,
-	user_name,
+	username,
 	hash
 }
 
-user_ip {
-	user_id,
+dict() = user_ip {
+	username,
 	user_ip
+}
+
+backlog {
+	user_id
+	message_id,
 }
 
 group {
@@ -25,4 +30,11 @@ group_user {
 	user_id
 }
 
+-------------
 
+data {
+	type,
+	data,
+	author,
+	destination: { 'user': ['username', ...] , 'group': ['groupname', ...] }
+} 
